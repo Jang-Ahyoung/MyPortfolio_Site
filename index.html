@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="background">
+    <section>
+        <img src="img/moon.png" alt="moon" id='moon' onclick="clickimg()">
+        <h2 id='text'>Ahyoung</h2>
+        <img class="cloud" src="img/cloud_sky.png" alt="" id="cloud"/> 
+    </section>
+    <h2>f</h2>
+
+    <script>
+        function clickimg() {
+            let img = document.getElementById('moon');
+            if (img.alt =='moon') {
+                img.src='img/real_sun.png';
+                img.alt ='sun';
+            }
+            else {
+                img.src='img/moon.png';
+                img.alt ='moon';}
+        }
+    </script>
+    <script type="text/javascript">
+        let moon = document.getElementById("moon");
+        let cloud= document.getElementById('cloud');
+        let text= document.getElementById('text');
+
+        window.addEventListener('resize', function(){
+            if (window.innerWidth>1350){
+                console.log('big:'+window.innerWidth)
+                moon.style.left = 1250+'px';
+                moon.style.top = 200+'px';
+            }else {
+                console.log(window.innerWidth)
+                moon.style.right = 150+'px';
+                moon.style.top = 100+'px';
+            }
+        })
+
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+            console.log(value)
+            if (window.innerWidth>1350){
+                moon.style.left = 1200+value+'px';
+            }else moon.style.left = 900+value+'px';
+            
+            if (value < 150){
+                cloud.style.top = value*2+'px';
+            }
+        })
+    </script>
+</body>
+</html>
