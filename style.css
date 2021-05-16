@@ -7,7 +7,6 @@
 body {
   width: 100%;
   min-height: 1500px;
-  background: rgb(55, 58, 58);
 }
 
 section {
@@ -18,15 +17,17 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgb(55, 58, 58);
 }
 
-section:after {
+section > div > span:after {
   content: "";
   position: absolute;
+  right: 0;
   bottom: 0;
   width: 100%;
   height: 100px;
-  background: linear-gradient(to top, #7baac7, transparent);
+  background: linear-gradient(to top, #a1c3d8, transparent);
   z-index: 10000;
 }
 section > img {
@@ -41,16 +42,75 @@ section > h2 {
   transform: translateY(290px);
   height: 100%;
 }
-section > #moon {
+section > #moon,
+section > #sun {
   width: 200px;
   top: 10%;
-  right: 150px;
-  right: 15%;
+  right: 13%;
   z-index: 2;
 }
-section > #cloud {
+section > #sun {
+  width: 240px;
+  right: 11.8%;
+  top: 8%;
+}
+#cloud {
+  position: absolute;
+  left: 0;
+  top: 0px;
+  transform: translateY(22%);
   width: 100%;
   z-index: 1;
-  top: -10px;
   transition: 0.5s;
+}
+
+#text {
+  padding: 20px;
+  transition: 1s;
+}
+#text > span {
+  position: relative;
+  display: inline-flex;
+}
+
+#text > span:nth-child(even) {
+  letter-spacing: -1em;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#text:hover > span:nth-child(even) {
+  letter-spacing: 0;
+}
+#text:before {
+  content: "Welcome,";
+  position: absolute;
+  width: 100%;
+  font-size: 2rem;
+}
+#text:hover:before {
+  content: "Welcome, it's";
+  position: absolute;
+  left: 20px;
+  height: 40px;
+  font-size: 2rem;
+}
+#text:after {
+  content: "!";
+  position: relative;
+  left: 40px;
+  height: 40px;
+  font-size: 4rem;
+  transform: rotate(35deg);
+}
+
+.middle {
+  background: #a1c3d8;
+  height: 120vh;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

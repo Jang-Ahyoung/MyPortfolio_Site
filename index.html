@@ -7,49 +7,60 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="background">
-    <section>
+<body>
+    <section id ='section'>
         <img src="img/moon.png" alt="moon" id='moon' onclick="clickimg()">
-        <h2 id='text'>Ahyoung</h2>
-        <img class="cloud" src="img/cloud_sky.png" alt="" id="cloud"/> 
+        <h2 id='text' onclick="handleScroll()"> 
+            <span>A</span><span>h</span><span>y</span><span>oung</span>
+        </h2>
+        <div>
+            <img class="cloud" src="img/cloud_sky.png" alt="" id="cloud"/>
+            <span id='gradient'></span> </div>
     </section>
-    <h2>f</h2>
+    <div class="middle" id='middle'>
+
+    </div>
 
     <script>
+        function handleScroll(){
+            document.getElementById('middle').scrollIntoView(
+                { 
+            behavior: 'smooth' 
+            })};
         function clickimg() {
-            let img = document.getElementById('moon');
+            let img = document.getElementById('moon') ? document.getElementById('moon') : document.getElementById('sun');
+            let section = document.getElementById('section');
+            let text = document.getElementById('text');
             if (img.alt =='moon') {
                 img.src='img/real_sun.png';
-                img.alt ='sun';
+                img.alt = 'sun';
+                img.id ='sun';
+                section.style.background='white';
+                text.style.color = 'black';
             }
             else {
                 img.src='img/moon.png';
-                img.alt ='moon';}
+                img.alt ='moon';
+                img.id ='moon';
+                text.style.color = 'whitesmoke';
+                section.style.background='rgb(55, 58, 58)';
+            }
         }
     </script>
     <script type="text/javascript">
-        let moon = document.getElementById("moon");
+        let moon = document.getElementById('moon') ? document.getElementById('moon') : document.getElementById('sun');
         let cloud= document.getElementById('cloud');
         let text= document.getElementById('text');
 
-        window.addEventListener('resize', function(){
-            if (window.innerWidth>1350){
-                console.log('big:'+window.innerWidth)
-                moon.style.left = 1250+'px';
-                moon.style.top = 200+'px';
-            }else {
-                console.log(window.innerWidth)
-                moon.style.right = 150+'px';
-                moon.style.top = 100+'px';
-            }
-        })
-
         window.addEventListener('scroll', function(){
             let value = window.scrollY;
-            console.log(value)
             if (window.innerWidth>1350){
-                moon.style.left = 1200+value+'px';
-            }else moon.style.left = 900+value+'px';
+                moon.style.left = 1250+value+'px';
+            }
+            if (value >150){
+                cloud.style.top = 350+'px';
+            }
+            if(window.innerWidth<1350) moon.style.left = 900+value+'px';
             
             if (value < 150){
                 cloud.style.top = value*2+'px';
