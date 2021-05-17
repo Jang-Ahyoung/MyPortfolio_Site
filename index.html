@@ -11,14 +11,14 @@
     <section id ='section'>
         <img src="img/moon.png" alt="moon" id='moon' onclick="clickimg()">
         <h2 id='text' onclick="handleScroll()"> 
-            <span>A</span><span>h</span><span>y</span><span>oung</span>
+            <span class="shadow">A</span><span>h</span><span class="shadow">y</span><span>oung</span>
         </h2>
         <div>
             <img class="cloud" src="img/cloud_sky.png" alt="" id="cloud"/>
             <span id='gradient'></span> </div>
     </section>
     <div class="middle" id='middle'>
-
+        PENG ㅠ 부족하지만 열심히 만들어볼게! PENG도 화이팅 ! 💕
     </div>
 
     <script>
@@ -54,17 +54,13 @@
 
         window.addEventListener('scroll', function(){
             let value = window.scrollY;
-            if (window.innerWidth>1350){
-                moon.style.left = 1250+value+'px';
-            }
-            if (value >150){
-                cloud.style.top = 350+'px';
-            }
-            if(window.innerWidth<1350) moon.style.left = 900+value+'px';
+            cloud.style.top = value*3+'px';
+            if (window.innerWidth > 1350) moon.style.left = 1250+value+'px';
+            if (window.innerWidth < 1350) moon.style.left = 900+value+'px';
+            if (value > 130) cloud.style.top = 350+'px';
+            if (value > 118) text.id='animation';
+            if (value < 120) text.id='text';
             
-            if (value < 150){
-                cloud.style.top = value*2+'px';
-            }
         })
     </script>
 </body>
