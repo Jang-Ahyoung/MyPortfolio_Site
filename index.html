@@ -54,14 +54,51 @@
 
         window.addEventListener('scroll', function(){
             let value = window.scrollY;
-            cloud.style.top = value*3+'px';
-            if (window.innerWidth > 1350) moon.style.left = 1250+value+'px';
-            if (window.innerWidth < 1350) moon.style.left = 900+value+'px';
-            if (value > 130) cloud.style.top = 350+'px';
+
+            if (window.innerWidth > 500){
+                cloud.style.bottom = -value*3+'px';
+                if( value == 0 ) cloud.style.bottom = 0;
+                
+                if ( window.innerWidth < 500 && value > 130 ) {
+                    cloud.style.bottom = -20+'%';}
+                else if(value > 130) cloud.style.bottom = -30+'%';
+            }else cloud.style.bottom = 0;
+
+            moon.style.left = window.innerWidth*0.66+value+'px';
+            
             if (value > 118) text.id='animation';
             if (value < 120) text.id='text';
             
         })
+    </script>
+    <script src="anime.min.js"> </script>
+    <script>
+        let animation = anime.timeline({
+            // autoplay:false
+        });
+
+        animation
+        .add({
+            targets:'#btn',
+            top:'1500px',
+            duration:800,
+            easing : 'easeInOutSine'
+        })
+
+        .add({
+            targets:'#moon',
+            top:'10%',
+            duration:150,
+            easing : 'easeInOutSine'
+        })
+
+        .add({
+            targets:'#cloud',
+            bottom:'0',
+            duration:500,
+            easing : 'easeInOutSine'
+        })
+        document.querySelector('#btn').onclick = animation.play;
     </script>
 </body>
 </html>

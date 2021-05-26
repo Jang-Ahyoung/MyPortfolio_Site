@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 body {
@@ -12,12 +14,13 @@ body {
 section {
   position: relative;
   width: 100%;
-  height: 150vh;
+  height: 110vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgb(55, 58, 58);
+  transition: 0.5s;
 }
 
 section > div > span:after {
@@ -32,6 +35,7 @@ section > div > span:after {
 }
 section > img {
   position: absolute;
+  /* transition: 0.25s; */
 }
 
 section > h2 {
@@ -42,66 +46,33 @@ section > h2 {
   transform: translateY(290px);
   height: 100%;
 }
-section > #moon,
-section > #sun {
-  width: 200px;
-  top: 10%;
-  right: 13%;
-  z-index: 2;
+section > #moon {
+  left: initial;
+  right: 20%;
+  width: 13%;
+  min-width: 100px;
+  top: -100%;
 }
 section > #sun {
-  width: 240px;
-  right: 11.8%;
-  top: 8%;
+  width: 15.5%;
+  right: 15%;
+  top: 9%;
 }
 #cloud {
   position: absolute;
   left: 0;
-  top: 0px;
-  transform: translateY(22%);
+  height: 100%;
+  bottom: -100%;
+  transform: translateY(15%);
   width: 100%;
   z-index: 1;
   transition: 0.5s;
 }
+
 .animation > span {
   transition: 0.5s;
-  animation: shake 12s;
 }
-@keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
-  }
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
+
 #text {
   padding: 20px;
 }
@@ -185,5 +156,34 @@ section > #sun {
   }
   100% {
     -webkit-transform: translate(1px, -2px) rotate(35deg);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #cloud {
+    max-height: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  #text > span,
+  #animation > span {
+    margin-top: 20px;
+    font-size: 5.7rem;
+  }
+  #cloud {
+    max-height: 500px;
+  }
+}
+@media screen and (max-width: 500px) {
+  #text > span,
+  #animation > span {
+    margin-top: 40px;
+    font-size: 3.5rem;
+  }
+  #text:after,
+  #animation:after {
+    top: 40px;
+    left: 30px;
+    font-size: 2.5rem;
   }
 }
