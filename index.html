@@ -18,6 +18,8 @@
             <span id='gradient'></span> </div>
     </section>
     <div class="middle" id='middle'>
+    <h2>It's not a development</h2><br/>
+    <h2>It's a step of innovation</h2>
         PENG ㅠ 부족하지만 열심히 만들어볼게! PENG도 화이팅 ! 💕
     </div>
 
@@ -56,12 +58,12 @@
             let value = window.scrollY;
 
             if (window.innerWidth > 500){
-                cloud.style.bottom = -value*3+'px';
+                cloud.style.bottom = -value*1.5+'px';
                 if( value == 0 ) cloud.style.bottom = 0;
                 
-                if ( window.innerWidth < 500 && value > 130 ) {
-                    cloud.style.bottom = -20+'%';}
-                else if(value > 130) cloud.style.bottom = -30+'%';
+                if ( window.innerWidth < 600 && value > 110 ) {
+                    cloud.style.bottom = -10+'%';}
+                else if(value > 130) cloud.style.bottom = -40+'%';
             }else cloud.style.bottom = 0;
 
             moon.style.left = window.innerWidth*0.66+value+'px';
