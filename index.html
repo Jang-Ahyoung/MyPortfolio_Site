@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section id ='section'>
+    <header id ='header'>
         <img src="img/moon.png" alt="moon" id='moon' onclick="clickimg()">
         <h2 id='text' onclick="handleScroll()"> 
             <span class="shadow">A</span><span>h</span><span class="shadow">y</span><span>oung</span>
@@ -16,28 +16,62 @@
         <div>
             <img class="cloud" src="img/cloud_sky.png" alt="" id="cloud"/>
             <span id='gradient'></span> </div>
-    </section>
-    <div class="middle" id='middle'>
-    <h2>It's not a development</h2><br/>
-    <h2>It's a step of innovation</h2>
-        PENG ㅠ 부족하지만 열심히 만들어볼게! PENG도 화이팅 ! 💕
+    </header>
+    <div class="homepage" id='homepage'>
+        <div class="homepage_container">
+            <nav>
+                <div class="img">🎠</div>
+                <div class="menu">My Features</div>
+                <div class="menu">My Path</div>
+                <div class="menu">Click with Me</div>
+            </nav>
+            <div class="introduce">
+                <h2 class="introduce_content">It's not a development<br/>It's a step of <span> Innovation</span></h2>
+                <p>이런 개발을 지향한다</p>
+            </div>
+            
+            <h3 class="subTitle">CLONE Project</h3>
+            <div class="project">
+                <div class="projectBox">
+                    <div class="description">
+                        <img src="img/netflix.png" alt="">
+                        <span><em>Netflix clone</em></span>
+                        <div class="description_content">
+                            <p class="description_stack">- Using stack</p>
+                            <img class="description_img" src="https://play-lh.googleusercontent.com/jf_GSRBn7eSX3Vp91WABRMrVw5rI9FRKD9gQPbMsNHyTr4DMc8o2kixiv-YbUbpU2jU" alt="">
+                            <img class="description_img" src="https://blog.kakaocdn.net/dn/GbUpC/btqZ7LhxOoQ/q0dV1nj9D1tT3EV8WPdnFK/img.png" alt="">
+                            <img class="description_img" src="https://img.icons8.com/color/452/redux.png" alt="">
+                            <p>▶ TMDB 활용한 로그인, 결제 시스템</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="projectBox">
+                    <div class="description"><img src="img/netflix.png" alt=""></div></div>
+                <div class="projectBox">
+                    <div class="description"></div></div>
+                <div class="projectBox">
+                    <div class="description"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
     <script>
         function handleScroll(){
-            document.getElementById('middle').scrollIntoView(
+            document.getElementById('homepage').scrollIntoView(
                 { 
             behavior: 'smooth' 
             })};
         function clickimg() {
             let img = document.getElementById('moon') ? document.getElementById('moon') : document.getElementById('sun');
-            let section = document.getElementById('section');
+            let header = document.getElementById('header');
             let text = document.getElementById('text');
             if (img.alt =='moon') {
                 img.src='img/real_sun.png';
                 img.alt = 'sun';
                 img.id ='sun';
-                section.style.background='white';
+                header.style.background='white';
                 text.style.color = 'black';
             }
             else {
@@ -45,7 +79,7 @@
                 img.alt ='moon';
                 img.id ='moon';
                 text.style.color = 'whitesmoke';
-                section.style.background='rgb(55, 58, 58)';
+                header.style.background='rgb(55, 58, 58)';
             }
         }
     </script>
@@ -75,7 +109,7 @@
     </script>
     <script src="anime.min.js"> </script>
     <script>
-        let animation = anime.timeline({
+            let animation = anime.timeline({
             // autoplay:false
         });
 
@@ -90,7 +124,7 @@
         .add({
             targets:'#moon',
             top:'10%',
-            duration:150,
+            duration:500,
             easing : 'easeInOutSine'
         })
 
